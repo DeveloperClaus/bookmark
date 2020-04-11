@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+@args demo.models.Comment outputOfLogin;
+<html lang="@_lang">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Login Flow Example</title>
+  </head>  
+  
+  <body>
+    <br/>
+    <a href="/login" style="padding: 220px 0px 0px 120px;">Login</a>
+    <a href="/check">Check</a>
+    <br/>
+    <br/>
+    last action = @outputOfLogin.getUsedClick()
+    <br/>
+    isLoggedIn = @outputOfLogin.getIsLoggedOn()
+    <br/>
+    loggedInUser = @outputOfLogin.getLoggedInUser()
+    <br/>
+    hasPermission = @outputOfLogin.getHasPermission()
+  </body>
+
+</html>

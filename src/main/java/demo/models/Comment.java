@@ -1,27 +1,34 @@
 package demo.models;
 
-import act.aaa.model.UserLinked;
-import act.db.jpa.JPADao;
-import org.osgl.aaa.Principal;
-import org.osgl.util.S;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity(name = "comment")
-public class Comment implements UserLinked {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
-    public String commenter;
-    public int bookmarkId;
-
-    @Override
-    public boolean isLinkedTo(Principal principal) {
-        return S.eq(principal.getName(), commenter);
-    }
-
-    public static class Dao extends JPADao<Integer, Comment> {}
+public class Comment  {
+	public String usedClick="";
+	public String isLoggedOn="";
+	public String hasPermission="";
+	public String loggedInUser="";
+	
+	public String getUsedClick() {
+		return usedClick;
+	}
+	public void setUsedClick(String usedClick) {
+		this.usedClick = usedClick;
+	}
+	public String getIsLoggedOn() {
+		return isLoggedOn;
+	}
+	public void setIsLoggedOn(String isLoggedOn) {
+		this.isLoggedOn = isLoggedOn;
+	}
+	public String getHasPermission() {
+		return hasPermission;
+	}
+	public void setHasPermission(String hasPermission) {
+		this.hasPermission = hasPermission;
+	}
+	public String getLoggedInUser() {
+		return loggedInUser;
+	}
+	public void setLoggedInUser(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+	}
 }
