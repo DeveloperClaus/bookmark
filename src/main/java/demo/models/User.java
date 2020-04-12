@@ -3,6 +3,7 @@ package demo.models;
 
 import act.aaa.model.UserBase;
 import act.db.jpa.JPADao;
+import act.job.OnAppStart;
 import demo.aaa.AAAHelper;
 import org.osgl.util.S;
 
@@ -32,5 +33,16 @@ public class User extends UserBase {
         public User findByEmail(String email) {
             return findOneBy("email", email);
         }
+
+        @OnAppStart
+        public void ensureTestUserAccount() {
+            User user = findByEmail("testFlowUser");
+            if (null == user) {
+                user = new User("testFlowUser", "testpassword".toCharArray());
+                user.grantPermissionByNames("defaultFlowPermission");
+                save(user);
+            }
+        }
+
     }
 }
