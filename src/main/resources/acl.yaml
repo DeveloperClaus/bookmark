@@ -6,8 +6,8 @@ defaultFlowPermission:
   type: permission
   dynamic: false
 
-testFlowUser:
+user:
   type: role
-  permissions: 
+  permissions:
     - defaultFlowPermission
-    
+
